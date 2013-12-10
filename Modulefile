@@ -1,11 +1,8 @@
 name    'leonardothibes-vim'
-version '0.0.1'
+version '1.0.0'
 source 'UNKNOWN'
 author 'leonardothibes'
-license 'Apache License, Version 2.0'
-summary 'UNKNOWN'
-description 'UNKNOWN'
-project_page 'UNKNOWN'
-
-## Add dependencies, if any:
-# dependency 'username/name', '>= 1.2.0'
+license 'MIT'
+summary 'Manage Vim via Puppet'
+source 'git://github.com/leonardothibes/puppet-jekyll.git'
+project_page 'http://github.com/leonardothibes/puppet-jekyll'
