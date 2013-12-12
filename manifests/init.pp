@@ -1,4 +1,7 @@
-class vim {
+class vim(
+	$encoding = 'utf-8',
+	$tabstop  = '4',
+) {
 
 	$vim     = "vim"
 	$vimpath = "/etc/vim"
@@ -13,7 +16,7 @@ class vim {
 
 	file {"$vimpath/vimrc.local":
 		ensure  => present,
-		source  => "puppet:///modules/vim/vimrc.local",
+		content => template('vim/vimrc.local.erb'),
 		owner   => root,
 		group   => root,
 		mode    => 0644,
