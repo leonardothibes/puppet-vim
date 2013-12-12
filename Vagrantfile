@@ -76,9 +76,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # #               Managed by Puppet.\n"
   # # }
   #
+  config.vm.synced_folder ".", "/etc/puppet/modules/vim"
+  config.vm.provision "shell", inline: "apt-get update > /dev/null"
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "tests"
-    puppet.module_path    = "../"
+    puppet.module_path    = "."
     puppet.manifest_file  = "init.pp"
   end
 
