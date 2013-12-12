@@ -1,10 +1,7 @@
 class vim(
-	$encoding = 'utf-8',
-	$tabstop  = '4',
-) {
-
-	$vim     = "vim"
-	$vimpath = "/etc/vim"
+  $encoding = 'utf-8',
+  $tabstop  = '4',
+) inherits vim::params {
 
 	package {[ "$vim" , "$vim-puppet" ]: ensure => present}
 	exec {"vim-addons install puppet": path => "/usr/bin"}
