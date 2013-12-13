@@ -7,26 +7,26 @@ class vim(
 ) inherits vim::params {
 
 	include vim::dependencies
-	package {"$vim": ensure => $ensure}
+	package {"$vim::params::vim": ensure => $ensure}
 
 	if $ensure == 'present' {
 		exec {"update-alternatives --set editor /usr/bin/vim.basic":
 			path    => "/usr/bin:/usr/sbin:/bin",
 			unless  => "test /etc/alternatives/editor -ef /usr/bin/vim.basic",
-			require => Package["$vim"],
+			require => Package["$vim::params::vim"],
 		}
 
-		file {"$vimpath/vimrc.local":
+		file {"$vim::params::vimpath/vimrc.local":
 			ensure  => present,
 			content => template('vim/vimrc.local.erb'),
 			owner   => root,
 			group   => root,
 			mode    => 0644,
-			require => Package["$vim"],
+			require => Package["$vim::params::vim"],
 		}
 
 		include vim::plugins
 	} else {
-		file {["$vimpath/vimrc.local", $vimpath]: ensure => 'absent'}
+		file {["$vimpath/vimrc.local", $vim::params::vimpath]: ensure => 'absent'}
 	}
 }
