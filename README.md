@@ -6,9 +6,11 @@ Manage Vim via Puppet.
 ## Sample Usage
 Install VIM and use the provided configuration defaults
 ```
-node default {
-  class { 'vim': }
-}
+class { 'vim': }
+```
+or
+```
+include vim
 ```
 
 LICENSE
