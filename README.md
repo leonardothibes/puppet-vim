@@ -13,6 +13,15 @@ or
 include vim
 ```
 
+Uninstall vim
+```
+node default {
+  class { 'vim':
+    ensure => absent,
+  }
+}
+```
+
 LICENSE
 =======
 
