@@ -7,7 +7,7 @@ class vim(
 ) inherits vim::params {
 
 	include vim::dependencies
-	package {"$vim::params::vim": ensure => $ensure}
+	package {$vim::params::vim: ensure => $ensure}
 
 	if $ensure == 'present' {
 		exec {"update-alternatives --set editor /usr/bin/vim.basic":
@@ -25,7 +25,7 @@ class vim(
 		}
 		vim::plugins::install{$plugins:}
 	} else {
-		package {"$vim::params::vim": ensure => 'absent'}
+		package {$vim::params::vim: ensure => 'absent'}
 		file    {["$vim::params::vimpath/vimrc.local", $vim::params::vimpath]: ensure => 'absent'}
 	}
 }
