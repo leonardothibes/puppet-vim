@@ -5,6 +5,7 @@ class vim(
   $opt_misc = $vim::params::opt_misc,
 ) inherits vim::params {
 
+	include vim::dependencies
 	package {"$vim": ensure => $ensure}
 
 	if $ensure == 'present' {
