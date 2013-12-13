@@ -27,6 +27,16 @@ node default {
 }
 ```
 
+With params and plugins
+```
+node default {
+	class {'vim':
+		tabstop  => 4,
+		plugins => ['puppet','rails'],
+	}
+}
+```
+
 Uninstall vim
 ```
 node default {
