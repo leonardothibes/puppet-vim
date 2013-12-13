@@ -25,6 +25,7 @@ class vim(
 		}
 		vim::plugins::install{$plugins:}
 	} else {
-		file {["$vim::params::vimpath/vimrc.local", $vim::params::vimpath]: ensure => 'absent'}
+		package {"$vim::params::vim": ensure => 'absent'}
+		file    {["$vim::params::vimpath/vimrc.local", $vim::params::vimpath]: ensure => 'absent'}
 	}
 }
