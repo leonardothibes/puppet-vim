@@ -15,18 +15,16 @@ class vim(
 			unless  => "test /etc/alternatives/editor -ef /usr/bin/vim.basic",
 			require => Package["$vim::params::vim"],
 		}
-
 		file {"$vim::params::vimpath/vimrc.local":
 			ensure  => present,
 			content => template('vim/vimrc.local.erb'),
 			owner   => root,
 			group   => root,
 			mode    => 0644,
-			require => Package["$vim::params::vim"],
+			require => Package[$vim::params::vim],
 		}
-
 		vim::plugins::install{$plugins:}
 	} else {
-		file {["$vimpath/vimrc.local", $vim::params::vimpath]: ensure => 'absent'}
+		file {["$vim::params::vimpath/vimrc.local", $vim::params::vimpath]: ensure => 'absent'}
 	}
 }
