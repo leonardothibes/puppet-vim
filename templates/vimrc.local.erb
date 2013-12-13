@@ -1,5 +1,6 @@
 set encoding=<%=@encoding%>
 set fileencodings=<%=@encoding%>
 set tabstop=<%=@tabstop%>
-set nobackup
-set number
+<% @opt_misc.each do |opt| -%>
+set <%=opt%>
+<% end -%>
