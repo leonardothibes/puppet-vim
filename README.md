@@ -37,6 +37,16 @@ node default {
 }
 ```
 
+With other params
+```
+node default {
+	class {'vim':
+		tabstop  => 4,
+		opt_misc => ['nonumber','wrap'],
+	}
+}
+```
+
 Uninstall vim
 ```
 node default {
