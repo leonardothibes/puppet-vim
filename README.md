@@ -10,15 +10,17 @@ class { 'vim': }
 ```
 or
 ```
-include vim
+node default {
+	include vim
+}
 ```
 
 Uninstall vim
 ```
 node default {
-  class { 'vim':
-    ensure => absent,
-  }
+	class { 'vim':
+		ensure => absent,
+	}
 }
 ```
 
