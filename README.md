@@ -31,7 +31,7 @@ With params and plugins
 ```
 node default {
 	class {'vim':
-		tabstop  => 4,
+		tabstop => 4,
 		plugins => ['puppet','rails'],
 	}
 }
