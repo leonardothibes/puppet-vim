@@ -25,7 +25,7 @@ class vim(
 			require => Package["$vim::params::vim"],
 		}
 
-		include vim::plugins
+		vim::plugins::install{$plugins:}
 	} else {
 		file {["$vimpath/vimrc.local", $vim::params::vimpath]: ensure => 'absent'}
 	}

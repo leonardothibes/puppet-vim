@@ -10,5 +10,4 @@ class vim::plugins
 			require => Package["vim-${name}"],
 		}
 	}
-	install{$vim::plugins:}
 }
