@@ -7,13 +7,23 @@ Manage Vim via Puppet.
 Install VIM and use the provided configuration defaults
 ```
 node default {
-	class { 'vim': }
+	class {'vim':}
 }
 ```
 or
 ```
 node default {
 	include vim
+}
+```
+
+With params
+```
+node default {
+	class {'vim':
+		tabstop  => 4,
+		encoding => 'utf-8',
+	}
 }
 ```
 
