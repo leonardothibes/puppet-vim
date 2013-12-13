@@ -1,7 +1,15 @@
 puppet-vim
 =============
 
-Manage Vim via Puppet
+Manage Vim via Puppet.
+
+## Sample Usage
+Install VIM and use the provided configuration defaults
+```
+node default {
+  class { 'vim': }
+}
+```
 
 LICENSE
 =======
