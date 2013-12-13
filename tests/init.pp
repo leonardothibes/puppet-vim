@@ -10,4 +10,5 @@
 #
 class {'vim':
 	tabstop => 4,
+	plugins => ['puppet','rails']
 }

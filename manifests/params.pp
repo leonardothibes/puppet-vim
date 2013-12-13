@@ -6,4 +6,5 @@ class vim::params
 	$vim      = "vim"
 	$vimpath  = "/etc/vim"
 	$opt_misc = ['nobackup','number']
+	$plugins  = []
 }

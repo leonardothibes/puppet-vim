@@ -3,6 +3,7 @@ class vim(
   $encoding = $vim::params::encoding,
   $tabstop  = $vim::params::tabstop,
   $opt_misc = $vim::params::opt_misc,
+  $plugins  = $vim::params::plugins,
 ) inherits vim::params {
 
 	include vim::dependencies
@@ -14,7 +15,7 @@ class vim(
 			unless  => "test /etc/alternatives/editor -ef /usr/bin/vim.basic",
 			require => Package["$vim"],
 		}
-		
+
 		file {"$vimpath/vimrc.local":
 			ensure  => present,
 			content => template('vim/vimrc.local.erb'),
@@ -23,10 +24,9 @@ class vim(
 			mode    => 0644,
 			require => Package["$vim"],
 		}
+
+		include vim::plugins
 	} else {
 		file {["$vimpath/vimrc.local", $vimpath]: ensure => 'absent'}
 	}
-
-	#package {[ "$vim" , "$vim-puppet" ]: ensure => present}
-	#exec {"vim-addons install puppet": path => "/usr/bin"}
 }
