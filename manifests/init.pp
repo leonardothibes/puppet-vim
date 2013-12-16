@@ -13,7 +13,7 @@ class vim(
 		exec {"update-alternatives --set editor /usr/bin/vim.basic":
 			path    => "/usr/bin:/usr/sbin:/bin",
 			unless  => "test /etc/alternatives/editor -ef /usr/bin/vim.basic",
-			require => Package["$vim::params::vim"],
+			require => Package[$vim::params::vim],
 		}
 		file {"$vim::params::vimpath/vimrc.local":
 			ensure  => present,
