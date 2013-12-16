@@ -50,7 +50,7 @@ node default {
 Uninstall vim
 ```
 node default {
-	class { 'vim':
+	class {'vim':
 		ensure => absent,
 	}
 }
@@ -59,7 +59,7 @@ node default {
 Contact
 -------
 
-Principal developer: 
+Principal developer:
 	[Leonardo Thibes](http://leonardothibes.com) => [eu@leonardothibes.com](mailto:eu@leonardothibes.com)
 
 Support
