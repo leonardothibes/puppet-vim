@@ -5,20 +5,20 @@ Manage Vim via Puppet.
 
 ## Sample Usage
 Install VIM and use the provided configuration defaults
-```
+```puppet
 node default {
 	class {'vim':}
 }
 ```
 or
-```
+```puppet
 node default {
 	include vim
 }
 ```
 
 With params
-```
+```puppet
 node default {
 	class {'vim':
 		tabstop  => 4,
@@ -28,7 +28,7 @@ node default {
 ```
 
 With params and plugins
-```
+```puppet
 node default {
 	class {'vim':
 		tabstop => 4,
@@ -38,7 +38,7 @@ node default {
 ```
 
 With other params
-```
+```puppet
 node default {
 	class {'vim':
 		tabstop  => 4,
@@ -48,7 +48,7 @@ node default {
 ```
 
 Uninstall vim
-```
+```puppet
 node default {
 	class {'vim':
 		ensure => absent,
