@@ -1,6 +1,6 @@
 name    'leonardothibes-vim'
+author  'leonardothibes'
 version '1.0.1'
-author 'leonardothibes'
 license 'MIT'
 summary 'Manage Vim via Puppet'
 description 'Manage Vim via Puppet'
