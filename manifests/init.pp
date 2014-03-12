@@ -5,10 +5,7 @@ class vim(
   $opt_misc = $vim::params::opt_misc,
   $plugins  = $vim::params::plugins,
 ) inherits vim::params {
-
 	include vim::dependencies
-	package {$vim::params::vim: ensure => $ensure}
-
 	if $ensure == 'present' {
 		exec {"update-alternatives --set editor /usr/bin/vim.basic":
 			path    => "/usr/bin:/usr/sbin:/bin",
